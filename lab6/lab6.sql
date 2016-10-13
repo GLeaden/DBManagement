@@ -28,7 +28,7 @@ FROM products p
 WHERE priceUSD < (	SELECT AVG(priceUSD)
                  	FROM products)
 ORDER BY p.name
-	DESC
+	DESC;
 
 /*3. Display the customer name, pid ordered, and the total for all orders, sorted by total 
 from low to high. */
@@ -38,7 +38,7 @@ FROM customers c
 INNER JOIN orders o ON (c.cid=o.cid)
 GROUP BY c.name,pid
 ORDER BY SUM(totalUSD)
-	ASC
+	ASC;
 
 /*4. Display all customer names (in alphabetical order) and their total ordered, and 
 nothing more. Use coalesce to avoid showing NULLs. */
@@ -48,7 +48,7 @@ FROM customers c
 INNER JOIN orders o ON (c.cid=o.cid)
 GROUP BY name
 ORDER BY name 	
-	ASC
+	ASC;
     
 /*5. Display the names of all customers who bought products from agents based in New 
 York along with the names of the products they ordered, 
@@ -62,7 +62,7 @@ INNER JOIN agents a on a.aid=o.aid
 WHERE o.aid in ( SELECT DISTINCT a.aid
               	FROM agents a
               	INNER JOIN orders o on a.aid=o.aid
-              	WHERE a.city='New York')
+              	WHERE a.city='New York');
 
 /*6. Write a query to check the accuracy of the dollars column in the Orders table. This 
 means calculating Orders.totalUSD from data in other tables and 
@@ -76,7 +76,7 @@ FROM orders o
 WHERE o.totalUSD != (p.priceUSD * o.qty) * (1-(c.discount/100))
 GROUP BY ordnum, c.cid, p.pid
 ORDER BY ordnum 
-	ASC
+	ASC;
 
 /*7. What’s the difference between a LEFT OUTER JOIN and a RIGHT OUTER JOIN? Give 
 example queries in SQL to demonstrate.(Feel free to use the CAP database to make your points here.)*/
@@ -95,7 +95,7 @@ customers table and any cities in the products table that match them
 */
 SELECT c.city
 FROM customers c
-LEFT OUTER JOIN products p on p.city = c.city
+LEFT OUTER JOIN products p on p.city = c.city;
 /*
 
 
@@ -107,7 +107,7 @@ BUT IN THIS CASE we have some values that do not match up, so we will have NULL 
 */
 SELECT c.city
 FROM customers c
-LEFT OUTER JOIN products p on p.city = c.city
+LEFT OUTER JOIN products p on p.city = c.city;
 
 
 
