@@ -1,3 +1,10 @@
+/*
+Brought to you by G Leaden
+10/12/2016
+Lab6 Interesting, but mostly Painful Queries
+
+*/
+
 /*1. Display the name and city of customers who live in any city that makes the most different kinds of products. 
 (There are two cities that make the most different products. Return the name and city of customers from either one of those.) */
 
